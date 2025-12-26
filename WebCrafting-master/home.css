@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+:root {
+    --bg-color: #0b0b10;
+    --card-bg: #15151e;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+
+    --starwars-color: #ffe81f;
+    --marvel-color: #e62429;
+    --dceu-color: #0077c2;
+
+    --t-fast: 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(11, 11, 16, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page Headers */
+.marvel-header,
+.dceu-header,
+.starwars-header {
+    text-align: center;
+    padding: 4rem 1rem 2rem;
+    position: relative;
+    background: radial-gradient(circle at center, #1a1a24 0%, var(--bg-color) 70%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 2rem;
+}
+
+.marvel-header h1,
+.dceu-header h1,
+.starwars-header h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 0 0 0.5rem;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.marvel-header h1 {
+    color: var(--marvel-color);
+}
+
+.dceu-header h1 {
+    color: var(--dceu-blue);
+}
+
+.starwars-header h1 {
+    color: var(--starwars-color);
+}
+
+.marvel-tagline,
+.dceu-tagline,
+.starwars-tagline {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Movie Grids (Shared across Universes) */
+.mcu-phases,
+.dceu-phases {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.mcu-phases h2,
+.dceu-phases h2 {
+    color: var(--marvel-color);
+    margin-bottom: 3rem;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.dceu-phases h2 {
+    color: var(--dceu-blue);
+}
+
+.phases-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.phase h3 {
+    color: var(--bg-color);
+    background: var(--marvel-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px 8px 0 0;
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.dceu-phases .phase h3 {
+    background: var(--dceu-blue);
+    color: #fff;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 2rem;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 0 16px 16px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    text-decoration: none;
+    color: #fff;
+    transition: transform var(--t-fast);
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+}
+
+.movie-card img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: box-shadow var(--t-fast), border-color var(--t-fast);
+    border: 2px solid transparent;
+}
+
+.movie-card:hover img {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.mcu-phases .movie-card:hover img {
+    border-color: var(--marvel-color);
+}
+
+.dceu-phases .movie-card:hover img {
+    border-color: var(--dceu-blue);
+}
+
+.movie-card span {
+    font-size: 0.95rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-weight: 600;
+    transition: color var(--t-fast);
+    line-height: 1.4;
+}
+
+.movie-card:hover span {
+    color: var(--text-primary);
+}
+
+/* About & Contact Sections */
+.about-section,
+.contact-section {
+    max-width: 800px;
+    margin: 4rem auto;
+    text-align: center;
+    padding: 0 2rem;
+    color: var(--text-secondary);
+}
+
+.about-section h2,
+.contact-section h2 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 4rem;
+}
+
+.navbar-links li a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color var(--t-fast);
+    padding: 0.5rem;
+}
+
+.navbar-links li a:hover,
+.navbar-links li a.active {
+    color: var(--text-primary);
+}
+
+.navbar-links li a.active {
+    position: relative;
+}
+
+.navbar-links li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--starwars-color), var(--marvel-color), var(--dceu-color));
+}
+
+/* Header */
+.crossover-header {
+    text-align: center;
+    padding: 8rem 1rem 6rem;
+    background: radial-gradient(circle at center, #2a2a35 0%, var(--bg-color) 70%);
+    position: relative;
+    overflow: hidden;
+}
+
+.crossover-header::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(45deg, var(--starwars-color), var(--marvel-color), var(--dceu-color));
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    animation: pulseGlow 10s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.2;
+    }
+}
+
+.crossover-header h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    margin: 0 0 1rem;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.crossover-header .x {
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin: 0 0.5rem;
+    opacity: 0.5;
+}
+
+.crossover-header .tagline {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Universes Grid */
+.universes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+}
+
+.universe {
+    background: rgba(21, 21, 30, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: transform var(--t-fast), box-shadow var(--t-fast);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.universe::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity var(--t-fast);
+}
+
+.universe:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.universe:hover::before {
+    opacity: 1;
+}
+
+/* Specific Universe Colors */
+.starwars {
+    color: var(--starwars-color);
+}
+
+.marvel {
+    color: var(--marvel-color);
+}
+
+.dceu {
+    color: var(--dceu-color);
+}
+
+.universe-img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    transition: transform var(--t-fast);
+}
+
+.universe:hover .universe-img {
+    transform: scale(1.15) rotate(2deg);
+    filter: drop-shadow(0 0 25px currentColor);
+}
+
+.universe h2 {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+    color: var(--text-primary);
+}
+
+.universe p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    flex-grow: 1;
+}
+
+/* Buttons */
+.universe-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all var(--t-fast);
+    background: transparent;
+    border: 2px solid currentColor;
+    color: inherit;
+}
+
+.universe-btn:hover {
+    background: currentColor;
+    color: #000;
+    box-shadow: 0 0 20px currentColor;
+}
+
+.starwars .universe-btn:hover {
+    color: #000;
+}
+
+.marvel .universe-btn:hover {
+    color: #fff;
+}
+
+.dceu .universe-btn:hover {
+    color: #fff;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .crossover-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .navbar-links {
+        gap: 1.5rem;
+    }
+
+    .universes {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem;
+    }
+}

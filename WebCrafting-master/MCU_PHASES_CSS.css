@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #38bd3c;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #333;
+    margin-top: 30px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.movie-item {
+    display: flex;              /* Flexbox to align items horizontally */
+    align-items: center;  
+}
+
+.movie-poster {
+    width: 50px;               /* Adjusted width of the poster */
+    height: auto;
+    margin-right: 10px;         /* Space between image and text */
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
